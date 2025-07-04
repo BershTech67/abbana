@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3Hausa CEX & DEX Toolkits</title>
+    <link href="output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @keyframes gradient-bg { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(-45deg, #0d1117, #111827, #161b22, #0d1117); background-size: 400% 400%; animation: gradient-bg 15s ease infinite; color: #c9d1d9; }
+        .toolkit-card { background-color: rgba(22, 27, 34, 0.5); border: 1px solid #30363d; border-radius: 1rem; padding: 2rem; transition: all 0.3s ease; display: flex; flex-direction: column; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); }
+        .toolkit-card:hover { border-color: #58a6ff; transform: translateY(-5px) scale(1.02); box-shadow: 0 0 20px rgba(88, 166, 255, 0.2); }
+        .btn { display: inline-block; width: 100%; padding: 0.75rem; border-radius: 0.5rem; font-weight: 600; text-align: center; transition: all 0.3s; transform: scale(1); }
+        .btn:hover { transform: scale(1.05); }
+        .btn-primary { background-color: #238636; color: white; box-shadow: 0 0 10px rgba(35, 134, 54, 0.5); }
+        .btn-primary:hover { background-color: #2ea043; }
+        .btn-secondary { background-color: #21262d; border: 1px solid #30363d; color: #58a6ff; }
+        .btn-secondary:hover { border-color: #58a6ff; background-color: #30363d; }
+        .input-field { width: 100%; padding: 0.75rem 1rem; border: 1px solid #30363d; background-color: #0d1117; border-radius: 0.375rem; color: #c9d1d9; }
+        .input-field:focus { outline: none; border-color: #58a6ff; box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3); }
+        .tool-view { background-color: #161b22; min-height: 100vh; }
+        .locked-overlay { position: absolute; inset: 0; background-color: rgba(13, 17, 23, 0.7); backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 1rem; z-index: 10; text-align: center; padding: 1rem; }
+        .btn-analyze { background: linear-gradient(90deg, #8e2de2, #4a00e0); color: white; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.5rem; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(142, 45, 226, 0.5); }
+        .btn-analyze:hover { box-shadow: 0 0 25px rgba(142, 45, 226, 0.8); transform: translateY(-2px); }
+        .fade-in { animation: fadeInAnimation 0.7s ease-out forwards; opacity: 0; }
+        @keyframes fadeInAnimation { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div id="hub-view">
+        <div class="container mx-auto p-4 md:p-8 min-h-screen flex flex-col justify-center">
+            <div class="text-center mb-12 fade-in">
+                <img src="public/web3hausa-logo.png" alt="Web3Hausa Logo" class="mx-auto mb-6 h-28 w-28 object-contain">
+                <h1 class="text-5xl md:text-6xl font-extrabold text-white">Web3Hausa Toolkits</h1>
+                <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">Specialized tools for CEX and DEX traders in Nigeria, built to give you a professional edge.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="toolkit-card fade-in" style="animation-delay: 200ms;">
+                    <div class="flex-grow">
+                        <h2 class="text-3xl font-bold text-white mb-4"><i class="fas fa-building-columns text-blue-400 mr-3"></i> CEX Toolkit: P2P NGN Pro</h2>
+                        <p class="text-gray-400 mb-6">A complete dashboard for CEX traders to find P2P rates, manage risk, and analyze the market.</p>
+                        <div class="text-center bg-gray-900/50 p-4 rounded-lg mb-6">
+                            <p class="text-3xl font-bold text-white">₦3,000 <span class="text-base font-normal text-gray-400">/ month</span></p>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary mt-8" onclick="showToolkit('cex-view')">Launch P2P NGN Pro</button>
+                </div>
+                <div class="toolkit-card fade-in" style="animation-delay: 400ms;">
+                    <div class="flex-grow">
+                        <h2 class="text-3xl font-bold text-white mb-4"><i class="fas fa-shield-halved text-purple-400 mr-3"></i> DEX Toolkit: Token Guard</h2>
+                        <p class="text-gray-400 mb-6">Scan any Solana token for risks and analyze its liquidity, momentum, and smart money activity.</p>
+                         <div class="text-center bg-gray-900/50 p-4 rounded-lg mb-6">
+                            <p class="text-3xl font-bold text-white">₦3,000 <span class="text-base font-normal text-gray-400">/ month</span></p>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary mt-8" onclick="showToolkit('dex-view')">Launch Token Guard</button>
+                </div>
+            </div>
+             <div class="text-center mt-8 analyzer-card border-purple-500 fade-in" style="animation-delay: 600ms;">
+                <h3 class="text-2xl font-bold text-white"><i class="fas fa-bolt text-yellow-400"></i> Pro Bundle Deal</h3>
+                <p class="text-gray-400 mt-2">Get both CEX & DEX Toolkits for only **₦5,000 / month** and save!</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript code omitted for brevity
+    </script>
+</body>
+</html>
